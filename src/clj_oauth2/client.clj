@@ -67,7 +67,7 @@
 (defn read-json-from-body
   "convert body to a reader to be compatible with clojure.data.json 0.2.1
    In case body is a byte array, aka class [B"
-  [body]
+  [body flag]
   (if (instance? String body)
     (json/parse-string body true)
     (with-open [reader (clojure.java.io/reader body)]
